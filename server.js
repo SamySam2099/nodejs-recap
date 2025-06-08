@@ -1,14 +1,20 @@
 import http from 'http'
-const PORT = 8000
+const PORT = process.env.PORT
 
 const server = http.createServer((req, res) => {
   // Content - Type header tells which type of data is being sent in the response
   // It tells the client how to interpret the data
-  res.setHeader('Content-Type', 'text/html')
+  //  res.setHeader('Content-Type', 'text/html')
+
+  // Unlike express, node.js would just run the command for any
+  // endpoint like /, /about, /anything
+  console.log(req.url)
+  console.log(req.method)
 
   //res.write('Hello world')
 
-  res.end(`<h1>Hello world!</h1>`)
+  res.writeHead(200, { 'Content-Type': 'application/json' })
+  res.end(JSON.stringify({ message: 'Hello' }))
 })
 
 server.listen(PORT, () => {

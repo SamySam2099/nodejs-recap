@@ -1,2 +1,3 @@
 # nodejs-recap
-Repo for personal recap of node js concepts
+
+Repo for personal recap of node js under the hood concepts
